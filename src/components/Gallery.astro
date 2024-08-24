@@ -1,0 +1,26 @@
+---
+import data from './gallery-data.json';
+
+const result = [[], [], []];
+
+for (let i = 0; i < data.length; i++) {
+  const insertToIndex = i % 3;
+  result[insertToIndex].push(data[i]);
+}
+---
+
+<div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 py-4">
+    {
+      result.map((row) => {
+        return (
+          <div class="flex flex-col gap-4">
+            {row.map((data) => (
+              <div>
+                <img src={data.url} loading="lazy" class="bg-neutral-900 h-auto max-w-full rounded-lg" width={data.width} height={data.height} />
+              </div>
+            ))}
+          </div>
+        )
+      })
+    }
+</div>

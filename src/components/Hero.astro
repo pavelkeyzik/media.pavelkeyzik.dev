@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import avatarImage from "../assets/avatar.jpg";
+---
+
+<header class="container mx-auto py-10 space-y-7">
+  <div class="flex justify-center">
+    <Image
+      src={avatarImage}
+      alt="Author with a camera"
+      width="180"
+      height="180"
+      class="rounded-full"
+    />
+  </div>
+  <div class="flex flex-col items-center space-y-2 text-center">
+    <h1 class="text-white text-5xl font-semibold">Automotive Photographer</h1>
+    <p class="text-neutral-400 text-lg">Hobby for me and memories for you</p>
+  </div>
+  <div class="flex justify-center">
+  <a href="http://instagram.com/pavelkeyzik/" class="flex gap-2 px-3 py-2 bg-white text-black rounded-md subscribe-button">
+    <div class="subscribe-button-border"></div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      color="currentColor"
+      fill="none"
+    >
+      <path
+        d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linejoin="round"></path>
+      <path
+        d="M16.5 12C16.5 14.4853 14.4853 16.5 12 16.5C9.51472 16.5 7.5 14.4853 7.5 12C7.5 9.51472 9.51472 7.5 12 7.5C14.4853 7.5 16.5 9.51472 16.5 12Z"
+        stroke="currentColor"
+        stroke-width="1.5"></path>
+      <path
+        d="M17.5078 6.5L17.4988 6.5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+    Instagram
+  </a>
+  </div>
+</header>
+
+<style>
+  .subscribe-button {
+    position: relative;
+  }
+
+  .subscribe-button-border {
+    position: absolute;
+    z-index: -1;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    top: -4px;
+    left: -4px;
+    border-radius: inherit;
+    overflow: hidden;
+    border: none;
+    opacity: 0;
+    transition: all .3s;
+  }
+
+  .subscribe-button:hover .subscribe-button-border {
+    opacity: 1;
+  }
+
+  .subscribe-button-border::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    width: calc(100% + 8px);
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: rainbow 2s linear infinite forwards;
+    top: 50%;
+    left: 50%;
+    border-radius: inherit;
+    background: conic-gradient(in hsl longer hue,red 0 0);
+  }
+
+  @keyframes rainbow {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+</style>
